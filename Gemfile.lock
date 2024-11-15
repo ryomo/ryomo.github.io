@@ -306,7 +306,16 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   http_parser.rb (~> 0.6.0)
+  jekyll-coffeescript (~> 1.2)
+  jekyll-default-layout (~> 0.1.5)
   jekyll-feed (~> 0.12)
+  jekyll-gist (~> 1.5)
+  jekyll-github-metadata (~> 2.16)
+  jekyll-optional-front-matter (~> 0.3.2)
+  jekyll-paginate (~> 1.1)
+  jekyll-readme-index (~> 0.3.0)
+  jekyll-relative-links (~> 0.6.1)
+  jekyll-titles-from-headings (~> 0.5.3)
   jemoji (~> 0.13.0)
   minima (~> 2.5)
   tzinfo (>= 1, < 3)
