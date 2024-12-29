@@ -27,6 +27,20 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ryomojp
 github_username:  ryomo
 
+# _notes/ directory settings
+collections:
+  notes:
+    output: true
+    permalink: /:collection/:title
+
+defaults:
+  # Use _layouts/note.html for all notes.
+  - scope:
+      type: "notes"
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "note"
+
 # Build settings
 theme: minima
 plugins:
