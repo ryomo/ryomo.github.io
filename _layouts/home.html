@@ -12,7 +12,8 @@ layout: default
   {%- if site.notes.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Notes" }}</h2>
     <ul class="post-list">
-      {%- for note in site.notes -%}
+      {%- assign sorted_notes = site.notes | sort: 'date' | reverse -%}
+      {%- for note in sorted_notes -%}
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         <span class="post-meta">{{ note.date | date: date_format }}</span>
