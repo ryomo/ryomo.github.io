@@ -46,6 +46,7 @@ theme: minima
 plugins:
   - jekyll-feed
   - jemoji
+  - jekyll-archives-v2
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -66,3 +67,10 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+jekyll-archives:
+  notes:
+    enabled: [tags]
+    layout: tag-archive
+    permalinks:
+      tag: "/notes/tag/:name/"

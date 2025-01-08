@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<h1>『{{ page.title }}』タグ</h1>
+<ul class="post-list">
+  {% for document in page.documents %}
+    <li>
+      <span class="post-meta">{{ document.date | date: "%b %-d, %Y" }}</span>
+      <h3>
+        <a class="post-link" href="{{ document.url | relative_url }}">
+          {{ document.title | escape }}
+        </a>
+      </h3>
+    </li>
+  {% endfor %}
+</ul>

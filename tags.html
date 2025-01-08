@@ -1,0 +1,13 @@
+---
+layout: default
+title: タグ
+permalink: /tags/
+---
+
+<h1>タグ</h1>
+
+{% for archive in site.archives %}
+  {% if archive.type == "tags" %}
+    <a href="{{ archive.url | relative_url }}">{{ archive.title }}</a>{% unless forloop.last %}, {% endunless %}
+  {% endif %}
+{% endfor %}
