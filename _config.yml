@@ -74,3 +74,9 @@ jekyll-archives:
     layout: tag-archive
     permalinks:
       tag: "/notes/tag/:name/"
+
+feed:
+  excerpt_only: true
+  collections:
+    notes:
+      path: "/notes/feed.xml"
