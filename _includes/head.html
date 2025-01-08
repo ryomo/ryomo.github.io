@@ -5,6 +5,9 @@
   {%- seo -%}
   <link rel="icon" href="{{ "/assets/favicon.ico" | relative_url }}" type="image/x-icon">
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- if page.collection == 'notes' -%}
+    <link rel="stylesheet" href="{{ "/assets/note.css" | relative_url }}">
+  {%- endif -%}
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
     {%- include google-analytics.html -%}

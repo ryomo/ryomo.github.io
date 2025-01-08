@@ -49,6 +49,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-archives-v2
+  - jekyll-toc
 
 # Exclude from processing.
 # The following items will not be processed, by default.

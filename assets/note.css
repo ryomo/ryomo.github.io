@@ -1,0 +1,15 @@
+.sidebar {
+  margin-bottom: 30px;
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .sidebar {
+    position: fixed;
+    top: 80px;
+    left: 10px;
+    width: calc((100vw - 800px) / 2 - 30px);  /* 800px = .post-content */
+    max-height: calc(100vh - 100px);  /* 100px = header + footer */
+    overflow-y: auto;
+  }
+}

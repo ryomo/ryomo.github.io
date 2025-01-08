@@ -2,6 +2,7 @@
 title: GitHub Pagesで最新のJekyllを使う方法
 date: 2024-12-31
 tags: Jekyll GitHub
+toc: true
 ---
 
 ## GitHub PagesでJekyllを使う際の問題点

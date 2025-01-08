@@ -3,6 +3,7 @@ layout: default
 ---
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
+<div class="main-content">
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
@@ -23,6 +24,12 @@ layout: default
       {%- endif -%}
   </header>
 
+  <aside class="sidebar">
+    <div class="toc">
+      {% toc %}
+    </div>
+  </aside>
+
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
@@ -30,6 +37,8 @@ layout: default
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}
   {%- endif -%}
+
+</div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
