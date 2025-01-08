@@ -15,8 +15,7 @@ layout: default
       {%- assign sorted_notes = site.notes | sort: 'date' | reverse -%}
       {%- for note in sorted_notes -%}
       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ note.date | date: date_format }}</span>
+        <span class="post-meta">{{ note.date | date: "%Y-%m-%d" }}</span>
         <h3>
           <a class="post-link" href="{{ note.url | relative_url }}">
             {{ note.title | escape }}

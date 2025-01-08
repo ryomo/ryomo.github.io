@@ -6,7 +6,7 @@ layout: default
 <ul class="post-list">
   {% for document in page.documents %}
     <li>
-      <span class="post-meta">{{ document.date | date: "%b %-d, %Y" }}</span>
+      <span class="post-meta">{{ document.date | date: "%Y-%m-%d" }}</span>
       <h3>
         <a class="post-link" href="{{ document.url | relative_url }}">
           {{ document.title | escape }}
