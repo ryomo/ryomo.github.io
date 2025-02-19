@@ -9,15 +9,17 @@ toc: true
 
 NVIDIA Container Toolkit は、Dockerコンテナ内でNVIDIA GPUを使うためのツール集です。
 
-インストールは、基本的には公式ドキュメントに従えばOKなんですが、NVIDIAのドキュメントは重複してたりあちこち散らばってたりするのでまとめました。
-
-WSLでも同じ手順でOKです。
+`FROM nvidia/cuda` とかで始まるDockerfileを使う場合には必須になってます[^1]。
 
 <br>
 
 ## インストール
 
 [Installing the NVIDIA Container Toolkit — NVIDIA Container Toolkit documentation](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+
+インストールは、基本的にはこの公式ドキュメントに従えばOKなんですが、NVIDIAのドキュメントは重複してたりあちこち散らばってたりするのでまとめました。
+
+WSLでも同じ手順でOKです。
 
 ```sh
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -80,3 +82,9 @@ Wed Feb 19 02:54:45 2025
 ```
 
 以上です。
+
+<br>
+
+## :notebook: 注釈
+
+[^1]: [nvidia/cuda - Docker Image \| Docker Hub](https://hub.docker.com/r/nvidia/cuda) を "NVIDIA Container Toolkit" で検索すると、 "The NVIDIA Container Toolkit⁠ for Docker is required to run CUDA images." って書いてあります。
