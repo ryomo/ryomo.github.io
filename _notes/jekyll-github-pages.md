@@ -90,7 +90,7 @@ PATHに新しいJekyllサイトの骨組みを作成する
 bundle exec jekyll serve --livereload
 ```
 
-日本語: buildして、ローカルのWebサーバーを起動し、<http://localhost:4000> でサイトを表示する
+buildして、ローカルのWebサーバーを起動し、<http://localhost:4000> でサイトを表示する
 
 * `--livereload`: ファイルを変更するたびにサイトを再構築する
 
