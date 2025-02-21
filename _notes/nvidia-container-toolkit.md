@@ -9,7 +9,7 @@ toc: true
 
 NVIDIA Container Toolkit は、Dockerコンテナ内でNVIDIA GPUを使うためのツール集です。
 
-`FROM nvidia/cuda` とかで始まるDockerfileを使う場合には必須になってます[^1]。
+dockerコマンドで`--runtime=nvidia`オプションを渡す場合や、`FROM nvidia/cuda`と書かれたDockerfileを使う場合[^1]には、必須になってます。
 
 <br>
 
