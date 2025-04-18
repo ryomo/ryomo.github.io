@@ -64,12 +64,11 @@ URLが表示されるので、それをブラウザで開くとJupyter Labが開
 
 ### とりあえずInference
 
-まずは素のSarashinaを使ってInferenceしてみます。
+ファインチューニングする前に、まずは素のSarashinaを使ってInferenceしてみます。
 
 Jupyter Labで`notebooks`ディレクトリにある`inference.ipynb`を開いてください。
 
-「►►」こんな感じのボタンを押して、全てのセルを実行してください。\
-大きなファイルのダウンロードがあるので、初回のみしばらく時間がかかります。
+「►►」こんな感じのボタンを押して、全てのセルを実行してください。大きなファイルのダウンロードがあるので、初回のみしばらく時間がかかります。
 
 運が良ければ、しっかり`<think>`タグと`<response>`タグが入ったレスポンスが返ってきてるかもしれません。
 
@@ -96,7 +95,8 @@ SYSTEM_PROMPT = """
 
 これは、先ほど実行した`inference.ipynb`と、これからファインチューニングで使う`finetuning.ipynb`の両方で使われます。
 
-`<think>`タグと`<response>`タグを使うように指示しているので、これがしっかり機能していれば、`inference.ipynb`で実行したときに、しっかりタグが入ったレスポンスが返ってくるはずです。\
+`<think>`タグと`<response>`タグを使うように指示しているので、これがしっかり機能していれば、`inference.ipynb`で実行したときに、しっかりタグが入ったレスポンスが返ってくるはずです。
+
 しかし、ファインチューニング前はあまりうまくいかないので、ファインチューニングをしてちゃんと各タグを使うようにしていこうというわけです。
 
 <br>
@@ -105,28 +105,23 @@ SYSTEM_PROMPT = """
 
 GRPOでファインチューニングをしていきます。
 
-GRPOは、ざーーーっくり言うと、強化学習でLLMをファインチューニングする手法です。\
-reward functionを書く必要がありますが、データセットは割と適当でも（場合によっては）大丈夫なので、個人的には好きです。
+GRPOは、ざーーーっくり言うと、強化学習でLLMをファインチューニングする手法です。reward functionを書く必要がありますが、データセットは割と適当でも（場合によっては）大丈夫なので、個人的には好きです。
 
-まずはメニューから"Kernel" -> "Shut Down Kernel"を選択して、`inference.ipynb`のカーネルをシャットダウンしてください。\
-シャットダウンしないで次のノートブックを実行すると、メモリが足りなくなってエラーが出ることがあります。
+まずはメニューから"Kernel" -> "Shut Down Kernel"を選択して、`inference.ipynb`のカーネルをシャットダウンしてください。シャットダウンしないで次のノートブックを実行すると、メモリが足りなくなってエラーが出ることがあります。
 
-次に、`notebooks`ディレクトリにある`finetuning.ipynb`を開いてください。\
-再度「►►」こんな感じのボタンを押して、全てのセルを実行してください。
+次に、`notebooks`ディレクトリにある`finetuning.ipynb`を開いてください。再度「►►」こんな感じのボタンを押して、全てのセルを実行してください。
 
 以下のようなテーブルが表示されたら、ひとまず動作していると見て良いと思います。
 
 ![image](/assets/sarashina-grpo/screenshot-table.png)
 
-GPUによりますが、長いと数時間かかると思います。\
-スリープしないように設定しておきましょう。
+GPUによりますが、長いと数時間かかると思います。PCがスリープしないように設定しておきましょう。
 
 <br>
 
 ### ファインチューニング後のInference
 
-ファインチューニングが終わったら、`artifact/outputs`にファインチューニングしたcheckpointが保存されていることを確認してください。\
-500ステップであれば、`checkpoint-500`というディレクトリができているはずです。
+ファインチューニングが終わったら、`artifact/outputs`にファインチューニングしたcheckpointが保存されていることを確認してください。500ステップであれば、`checkpoint-500`というディレクトリができているはずです。
 
 メモリを解放するため、`finetuning.ipynb`のカーネルをシャットダウンしてください。
 
@@ -137,8 +132,7 @@ GPUによりますが、長いと数時間かかると思います。\
 MODEL_NAME = f"{PROJECT_ROOT}/artifact/outputs/checkpoint-500"  # こっちを有効化
 ```
 
-これで、ファインチューニングしたモデルを使ってInferenceができるようになります。\
-再度「►►」を押して、全てのセルを実行してください。
+これで、ファインチューニングしたモデルを使ってInferenceができるようになります。再度「►►」を押して、全てのセルを実行してください。
 
 今度はしっかり`<think>`タグと`<response>`タグが入ったレスポンスが返ってきているはずです。
 
@@ -209,8 +203,7 @@ sarashina-grpo/
 
 ### GRPOのreward function
 
-`src/sarashina_grpo/grpo/xml_tuning.py`を見てもらうと、GRPOのreward functionが実装されています。\
-それぞれ以下のような内容です。
+`src/sarashina_grpo/grpo/xml_tuning.py`を見てもらうと、GRPOのreward functionが実装されています。それぞれ以下のような内容です。
 
 - `xmlcount_reward_func()`: 各タグの数が1つであれば加点する。`</response>`タグの後にある文字数分だけ減点する。
 - `soft_format_reward_func()`: ざっくり`<think>文字</think><response>文字</response>`の形になっていれば加点する。
@@ -253,8 +246,7 @@ uv run tensorboard --logdir=./artifact/logs
 
 表示されたURLをブラウザで開くと、TensorBoardが開きます。
 
-GRPOで大事なのは、reward関連の値です。\
-他のファインチューニング手法と異なり、lossは気にしなくて良いです。
+GRPOで大事なのは、reward関連の値です。他のファインチューニング手法と異なり、lossは気にしなくて良いです。
 
 ![image](/assets/sarashina-grpo/screenshot-tensorboard-reward.png){:width="400" class="center"}
 
@@ -281,23 +273,20 @@ Unsloth: Your GPU can only handle approximately the maximum sequence length of 2
 
 Unslothのソースコードを見てみると出所は`load_vllm()`という関数だったので、`USE_VLLM=False`にしたところ、上記警告は出なくなりました。
 
-vLLMを使うと推論速度が上がりますが、メモリが少ない環境だとデメリットもあるということですね。\
-各自の環境に合わせて、`USE_VLLM`の値を変更してください。
+vLLMを使うと推論速度が上がりますが、メモリが少ない環境だとデメリットもあるということですね。各自の環境に合わせて、`USE_VLLM`の値を変更してください。
 
 Unslothのドキュメントには、vLLMを使うと推論速度が上がりメモリ使用量は増えないと書いてあって、
 デメリットは書いてないですが、実際はそうでもないようです。
 
-参照: https://docs.unsloth.ai/basics/reasoning-grpo-and-rl#using-vllm
+参照: <https://docs.unsloth.ai/basics/reasoning-grpo-and-rl#using-vllm>
 
 <br>
 
 ### キャッシュ等の削除
 
-LLMは結構なサイズなので、いろいろなモデルを試しているとキャッシュが結構なサイズになっているかもしれません。\
-もし、キャッシュを削除したい場合は、`~/.cache/huggingface`にあるので、必要に応じて削除してください。
+LLMは結構なサイズなので、いろいろなモデルを試しているとキャッシュが結構なサイズになっているかもしれません。もし、キャッシュを削除したい場合は、`~/.cache/huggingface`にあるので、必要に応じて削除してください。
 
-また、ファインチューニングで作られるcheckpointは、プロジェクト内の`artifact/outputs`に保存されます。\
-これも必要に応じて削除してください。
+また、ファインチューニングで作られるcheckpointは、プロジェクト内の`artifact/outputs`に保存されます。これも必要に応じて削除してください。
 
 <br>
 
