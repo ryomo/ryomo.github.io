@@ -1,5 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll("pre").forEach(addCopyButton);
+  document.querySelectorAll("pre").forEach(function(pre) {
+    // Skip if the grandparent of the "pre" element has the "language-plaintext" class
+    if (pre.parentElement?.parentElement?.classList.contains("language-plaintext")) {
+      return;
+    }
+    addCopyButton(pre);
+  });
 });
 
 function addCopyButton(pre) {
