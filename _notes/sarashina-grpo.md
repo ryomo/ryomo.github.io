@@ -46,6 +46,8 @@ AI:
 
 まずは一通りインストールします。
 
+リポジトリは [ryomo/sarashina-grpo](https://github.com/ryomo/sarashina-grpo) です。
+
 ```sh
 git clone git@github.com:ryomo/sarashina-grpo.git
 cd sarashina-grpo
