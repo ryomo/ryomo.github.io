@@ -64,6 +64,9 @@ GEM
       sass-embedded (~> 1.54)
     jekyll-seo-tag (2.8.0)
       jekyll (>= 3.8, < 5.0)
+    jekyll-target-blank (2.0.2)
+      jekyll (>= 3.0, < 5.0)
+      nokogiri (~> 1.10)
     jekyll-toc (0.19.0)
       jekyll (>= 3.9)
       nokogiri (~> 1.12)
@@ -121,6 +124,7 @@ DEPENDENCIES
   jekyll-archives-v2
   jekyll-feed (~> 0.12)
   jekyll-seo-tag
+  jekyll-target-blank
   jekyll-toc
   jemoji (~> 0.13.0)
   minima (~> 2.5)

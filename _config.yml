@@ -51,6 +51,7 @@ plugins:
   - jekyll-archives-v2
   - jekyll-toc
   - jekyll-seo-tag
+  - jekyll-target-blank
 
 # Exclude from processing.
 # The following items will not be processed, by default.
