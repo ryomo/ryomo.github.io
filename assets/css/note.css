@@ -32,3 +32,8 @@
   white-space: pre-wrap;
   word-break: break-all;
 }
+
+/* icon for external links */
+.ext-link::after {
+  content: "🔗";
+}

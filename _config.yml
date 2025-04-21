@@ -85,3 +85,8 @@ feed:
   collections:
     notes:
       path: "/notes/feed.xml"
+
+# jekyll-target-blank
+# https://github.com/keithmifsud/jekyll-target-blank?tab=readme-ov-file#configuration
+target-blank:
+  add_css_classes: ext-link
