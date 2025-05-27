@@ -47,3 +47,10 @@ bundle exec jekyll serve --livereload
 ```
 
 http://localhost:4000 でサイトを表示
+
+
+## パッケージアップデート
+
+```sh
+bundle update --all
+```
