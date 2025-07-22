@@ -1,0 +1,13 @@
+{
+    "favorites.resources": [
+        {
+            "filePath": "vendor/bundle/ruby/3.2.0/gems/minima-2.5.2",
+            "group": "Default"
+        }
+    ],
+    "github.copilot.chat.commitMessageGeneration.instructions": [
+        {
+            "text": "Write commit messages in concise English using the conventional commit message format."
+        }
+    ]
+}
