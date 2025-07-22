@@ -6,7 +6,6 @@
 
 自分でブログを始めたい場合は [GitHub Pagesで最新のJekyllを使う方法 | ryomo’s tech blog](https://ryomo.github.io/notes/jekyll-github-pages) を参照してください。
 
-
 ## インストール
 
 ### Jekyllのインストール
@@ -39,15 +38,13 @@ cd ryomo.github.io/
 bundle install
 ```
 
-
 ## プレビュー
 
 ```sh
 bundle exec jekyll serve --livereload
 ```
 
-http://localhost:4000 でサイトを表示
-
+<http://localhost:4000> でサイトを表示
 
 ## パッケージアップデート
 
