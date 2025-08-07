@@ -11,7 +11,6 @@ toc: true
 
 <br>
 
-
 ## 注釈付きの文書
 
 `[^1]` みたいに書くと、注釈が付けられる。[^1]
@@ -35,8 +34,6 @@ toc: true
 <https://github.com/deepseek-ai/DeepSeek-R1/blob/main/DeepSeek_R1.pdf>
 
 [Train your own R1 reasoning model locally (GRPO)](https://unsloth.ai/blog/r1-reasoning)
-
-
 
 ## :notebook: 注釈
 
