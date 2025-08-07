@@ -14,7 +14,14 @@
   }
 }
 
+div.highlight {
+  position: relative;  /* Enable absolute positioning for .copy-button */
+}
+
 .copy-button {
+  position: absolute;
+  top: 0;
+  right: 0;
   margin: 5px;
   padding: 5px 10px;
   font-size: 16px;
@@ -31,6 +38,11 @@
 .language-plaintext > div > pre > code {
   white-space: pre-wrap;
   word-break: break-all;
+}
+
+pre.highlight {
+  margin-bottom: 0 !important;
+  padding-right: 5em;  /* Space for .copy-button */
 }
 
 /* icon for external links */
