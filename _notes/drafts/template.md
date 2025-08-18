@@ -1,5 +1,6 @@
 ---
 title: テンプレート
+date: 2024-01-01
 image: /assets/template/test.png
 tags: AI
 toc: true
@@ -7,7 +8,7 @@ toc: true
 
 ## テンプレート
 
-`date:`は入れてないので、必要に応じて入れる。入れてない場合、最終更新日が表示される。
+`date:`を入れない場合、最終更新日が表示される。
 
 <br>
 
